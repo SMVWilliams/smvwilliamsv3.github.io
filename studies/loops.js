@@ -10,7 +10,7 @@
 //     IMPORTANT to include so as not to produce an infinite loop. 
     
 //  Example of a while-loop
-    let finalCountdown = 10;      //the variable 'theBlock' is intialized at a set value.              
+    let finalCountdown = 10;      //the variable 'finalCountdown' is intialized at a set value.              
     while(finalCountdown > 0){     //the conditional statement is whether the value of the variable is greater than zero.
         console.log('Its the final countdown!', finalCountdown);  // cue guitar solo, synth and pryo-technics. 
         finalCountdown--;             //inclusion of a decrementor that counts down to 0. 
