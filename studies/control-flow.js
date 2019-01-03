@@ -97,9 +97,9 @@
     
          Array.isArray(type) === true ? typeValue = 'array' : 
          type === null ? typeValue = 'null' : 
-         value instanceof Date === true ?  typeValue = 'date' : typeValue = 'object';
+         type instanceof Date === true ?  typeValue = 'date' : typeValue = 'object';
     
-    };
+    }
 	
     console.log(typeValue); 
     

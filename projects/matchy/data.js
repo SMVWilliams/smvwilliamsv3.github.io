@@ -89,7 +89,7 @@ var rabbit = {
 };
 
 var frog = {
-    species : 'toad',
+    species : 'frog',
     name: "Slippy Toad",
     noises: ['ribbit', 'croak']
 }; 
