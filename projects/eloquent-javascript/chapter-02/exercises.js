@@ -3,7 +3,12 @@
 // triangles ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function triangles() {
+function triangles(number) {
+  let triangle = ""; 
+for(let line = 0; line < number; line++){
+  triangle += "#"; 
+    console.log(triangle); 
+}
 
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -11,6 +16,25 @@ function triangles() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function fizzBuzz() {
+
+  let number = 1; 
+while(number < 16){
+  
+  if(number % 15 === 0){
+    console.log('fizzbuzz');
+    
+  } else if(number % 5 === 0){
+    console.log('buzz'); 
+    
+  }else if(number % 3 === 0){
+    console.log('fizz'); 
+    
+  }else{
+    console.log(number); 
+  }
+  number++; 
+}
+
   
 }
 
@@ -18,7 +42,27 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
+function drawChessboard(size) {
+  
+  //the chessboard should an 8 x 8 grid, # for black spaces.." " for white.
+//the size is initialized as 8..but we're not hard-coding the size.
+  
+
+//start with an empty string. 
+  let chessBoard = "";
+
+//we need two loops..one for the pattern of black and white. 
+// the other loop is for the line
+
+ for(let line = 0; line < size; line++){
+  for(let space = 0; space < size; space++){
+    let black = "#", white = " "; 
+      
+        space % 2 === line % 2 ? chessBoard += white : chessBoard += black;  
+       }
+   chessBoard += "\n"; 
+    }
+ console.log(chessBoard);
 
 }
 
