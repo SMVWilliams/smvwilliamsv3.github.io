@@ -601,42 +601,26 @@ _.some = function(collection, test){
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 _.reduce =  function(collection, accumulator, seed){
+    //we're gonna try this again..things I know..the seed is the previousResult
+    //if there is no seed, the seed is the first element in the collection, collection[0]
+    //use .each to iterate over the collection
+    //return value is the previousResult(seed?)
     
-    //i know that the first thing to account for is whether a seed is present in the parameters
-     //will there be two different sets of code ?
-
-    //declare a variable to contain the previousResult
-    let previousResult; 
-    
-     //if the seed isn't present
-    //set the seed to the first element within the array.
-    if(seed === undefined){
-        debugger; 
-        previousResult = collection[0]; 
-        
-    //i think I remember that the collection should start at the second position in the collection (index positon: one)
-    const remainCollection = collection.slice(1);
-    
-     _.each(remainCollection, function(value, index, remainCollection){
-         
-           previousResult =  accumulator(previousResult, value, index, remainCollection); 
-           console.log(previousResult); 
+    //use an .each function to accumulate over the collection.
+    _.each(collection, function(value, index, collection){
+        //create a conditional to take into account whether seed is present
+        if( seed === undefined){
+            //if there is no seed, seed is the first element in the collection
+            seed = collection[index];
+            
+        } else {
+            //use accumulator function on the (seed, value and position)
+            seed = accumulator(seed, value, index);
+        }
     });
-        
-    //if the seed is present, 
-    } else {
-        
-        previousResult = seed; 
-      _.each(collection, function(element, property, collection){
-         
-           previousResult =  accumulator(previousResult, element, property, collection); 
-           console.log(previousResult); 
-    });
-    
-    }
-    
-    return previousResult; 
-};
+        //return seed after the final iteration. 
+        return seed; 
+    };
 
 
 /** _.extend
@@ -653,9 +637,25 @@ _.reduce =  function(collection, accumulator, seed){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-_.extend = function(object, object2, objectProto){
+_.extend = function(object){
     //I know to use Array.from(arguments) to incorporate the amount of possible objects
-    //I also know that I want to invoke _.reduce for the solution for this problem 
+    //I also know that I want to invoke _.reduce for the solution for this problem
+    
+    //declare variable and incorporate array.from method to hold potential arguments within an array
+    const penultimaObject = Array.from(arguments); 
+    
+    //use .reduce with array as collection, the seed will be the first element in the array
+    return _.reduce(penultimaObject, function(object, element, position, penultimaObject){
+        //within object(element) in the collection, use an .each to iterate over the object
+        _.each(element, function(value, key, element){
+            
+        //copy properties from each object to the first object(the seed)
+           object[key] = element[key];  
+        });
+    //return the completed object.
+     return object;
+    });
+    
 };
 
 //////////////////////////////////////////////////////////////////////
