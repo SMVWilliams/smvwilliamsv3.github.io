@@ -17,9 +17,6 @@
 //     - undefined
 //     - the boolean value false
 
-// PRO-TIP : At least I enjoy doing it, in the case of determining whether a condition is true or false, I would 
-// rather let the datatype BE the conditional as opposed to writing a complete statement. 
-
  for(let boundary = 10; boundary >= 0; boundary--){
 	if(boundary){
 	console.log( "If I know the boundary has a value of ", boundary, "and is  inherently true, I COULD write a condition, or I could wait till it becomes zero");
@@ -31,6 +28,7 @@
 
 // Conditional statements used to control the flow of the program are comprised of
 // several types. 
+
 // 1. If statements - If statements are always the initial condition to evaluated.
 //         If the conditional statement evaluates to true, the program will execute 
 //         the code block within the curly braces of the that statement. 
@@ -40,7 +38,7 @@
         console.log('True.');  
 
 // 2. Else If statements - When a conditional statement in the initial 
-//     'If' statement evaluates to false. An Else statement is used. An else-if 
+//     'If' statement evaluates to false. An Else-if statement is used. An else-if 
 //     statement provides another conditional to be evaluated.
     
      } else if(conditional === true){
@@ -53,7 +51,7 @@
     
      } else { 
          console.log('Okay, Not true. *sigh*');
-     }; // <---- end of statement chain. 
+     } // <---- end of statement chain. 
     
 // 4. Switch Statements - Switch statements are another form of controlling the 
 //     flow of a program. It is arranged by evaluating an expression statement 
