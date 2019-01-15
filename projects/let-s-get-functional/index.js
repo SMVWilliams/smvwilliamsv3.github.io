@@ -224,8 +224,6 @@ let friendsOfThisFriend = _.map(customers, function(customer, index, customers){
 
 //friendsOfThisFriend has the appropriate names, but a lot of undefined values...
 
-
-
 //return value is the outcome of filter on the friendsOfThisFriend array, after removing the 'undefined' values. 
   return _.filter(friendsOfThisFriend, function(element, index, friendsOfThisFriend){
             if (typeof element === 'string'){
@@ -246,15 +244,15 @@ const customerTags = _.map(customers, function(customer, index, customers){
 });
 
 //console.log(customerTags, ' should be an array of sub-arrays');
-//concat each sub-array into the major array, using reduce. 
 
+//concat each sub-array into the major array, using reduce. 
 let arrayOfTags = _.reduce(customerTags, function(arrayOfTags, tags, position){
 
     return arrayOfTags.concat(tags); 
  
-});
+}).sort();
 
-console.log(arrayOfTags, ' is it an array of tags? did it work? '); 
+//console.log(arrayOfTags, ' is it an array of tags?'); 
 
 //create a frequency list using reduce
 let tagFreqList = _.reduce(arrayOfTags, function(tagFreqList, tag, position){
@@ -272,86 +270,43 @@ let tagFreqList = _.reduce(arrayOfTags, function(tagFreqList, tag, position){
     
 }, {});
 
-console.log(tagFreqList,'is it an object of tags with amounts of frequency?'); 
+//console.log(tagFreqList,'is it an object of tags with amounts of frequency?'); 
+
+ 
 
 //separate each object into an array with a specified index
-let indexedTags = _.map(tagFreqList, function(tag, key, tagFreqList){
-    return ; 
-});
+let indexedTagsFreq = _.map(tagFreqList, function(freq, tag, tagFreqList){
+    
+    //   let tagObj = {};
+    //   tagObj[tag] = tagFreqList[tag];
+        return { 'tag': tag, 'freq': freq };
+    
+ }).sort(function(a, b){
+      if(a.freq > b.freq){
+          
+        return -1;
+        
+      }else if(a.freq < b.freq){
+        return 1;
+          
+      }else {
+          return 0; 
+      }
+ });
 
-console.log(indexedTags, 'is it an array of tags objects?');
-//sort through array by frequency, the highest to the lowest
+//console.log(indexedTagsFreq, 'is it an array of objects?');
+
+let finalThreeTags = indexedTagsFreq.slice(0,3); 
+return _.pluck(finalThreeTags, 'tag');
+
+//from the frequency list, use to isolate the particular tags that have the highest value(freq)
+
+
+//can i attempt to use filter on the collection?
+//do you want to use a while loop
+//the conditional will be as long as the array.length doesn't equal to three
+// console.log(result); 
 //return value is the first three values. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //let's isolate a customer, and feed that customer 
-// //use .map to separate each customer into an individual index.
-// const indexCustomers = _.map(customers, function(customer, index, customers){
-//     return customer;  
-// });
-
-// //console.log(indexCustomers, 'customer? ', indexCustomers.length); 
-// // use .map again to access the tags array within each customer and return 
-// // each individual tag into a single array, for each customer
-
-// let customerTags = _.reduce(indexCustomers, function(customerTags, customer, index){
-
-// // _.map(indexCustomers, function(customer, index, indexCustomers){
-
-//     //intialize variable tags to denote that particular property within the customer object
-//   let tags = customer['tags'];
-  
-//   //initialzed a variable to represent an individual tag to return 
-//   let aTag; 
-  
-// //   console.log(tags, 'what is this?', index); 
-    
-//     //iterate over the tags array, 
-//   _.each(tags, function(tag, index, tags){
-    
-//       console.log(tag, '<--tag', index, 'test is passing');
-//     //reassign the element tag with the variable 'aTag';
-//       aTag = tag; 
-//   }, []);
-  
-  
-//   return aTag; 
-
-    
-// });
-
-// console.log(customerTags, 'customerTAgs list?' ); 
-
-//use reduce to create a frequencey tag list
-//use filter to figure out the top three greatest values
-
-
-  
-
-
-// _.map(customers, function(customer, index, customers){
-//     return customer['tags']; 
-// });
-
-
-
-//console.log(customerTagsFirst, 'its an array of arrays');
-
-// let customerTagsSec;
-// //maybe I should concat each array..
-
 };
 
 var genderCount = function(customers){
