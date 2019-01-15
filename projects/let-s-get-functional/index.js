@@ -272,15 +272,17 @@ let tagFreqList = _.reduce(arrayOfTags, function(tagFreqList, tag, position){
 
 //console.log(tagFreqList,'is it an object of tags with amounts of frequency?'); 
 
- 
+//from the frequency list, use map to isolate the particular tags that have the highest value(freq)
 
 //separate each object into an array with a specified index
 let indexedTagsFreq = _.map(tagFreqList, function(freq, tag, tagFreqList){
-    
-    //   let tagObj = {};
-    //   tagObj[tag] = tagFreqList[tag];
+        
+        //each index will have an object with specified key/property value, tag name(tag) 
+        //and frequency(freq)
         return { 'tag': tag, 'freq': freq };
     
+    
+//used array.sort method to sort the mapped array in descending order according to the freq value;    
  }).sort(function(a, b){
       if(a.freq > b.freq){
           
@@ -296,17 +298,14 @@ let indexedTagsFreq = _.map(tagFreqList, function(freq, tag, tagFreqList){
 
 //console.log(indexedTagsFreq, 'is it an array of objects?');
 
+//return value is the first three values. 
+//used slice to create a shallow copy of the previous array, indexedTagsFreq
+//set it to a variable, finalThreeTags, to be returned
 let finalThreeTags = indexedTagsFreq.slice(0,3); 
+
+//used the outcome of  pluck as the return value which will be an array of the first three values
 return _.pluck(finalThreeTags, 'tag');
 
-//from the frequency list, use to isolate the particular tags that have the highest value(freq)
-
-
-//can i attempt to use filter on the collection?
-//do you want to use a while loop
-//the conditional will be as long as the array.length doesn't equal to three
-// console.log(result); 
-//return value is the first three values. 
 };
 
 var genderCount = function(customers){
