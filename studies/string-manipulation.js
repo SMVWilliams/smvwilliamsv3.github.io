@@ -24,22 +24,29 @@
         
 // 2. Manipulating Strings with Methods
 //     - This is a list of methods used to manipulate strings
-//       will update as used.
-        
+//       will update as used. 
+
+
+//      Pure String Methods (methods that do not mutate the given string)
+
 //         .concat() - method used to concatenate several strings
-//                     into one string.
+//                     into one string. Returns a new string. 
+
 //         .charAt(index) - method that returns single character from string 
 //                          depending on given index.
 // 
+//         .slice(start,end) - method that returns a set of characters using the 
+//                             given index and/or endpoint. 
+
+//         .split(separator) - method that returns an array of smaller strings 
+//			       that are split at the point from a given separator. 
+
+
+//      Impure String Methods (methods that mutate the given string)
+
 //         .replace(what to replace, the string/character to be replaced) 
 //                          method that can be used to replace a character     
 //                          or word within the string. 
-//
-//         .slice(start,end) - method that returns a set of characters using the 
-//                             given index and/or endpoint. 
-//
-//         .split(separator) - method that returns an array of smaller strings 
-//			       that are split at the point from a given separator. 
 //
 //         .toUpperCase() - method that returns string of characters 
 //                         to UpperCase.

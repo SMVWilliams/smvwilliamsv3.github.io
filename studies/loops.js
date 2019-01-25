@@ -1,6 +1,6 @@
 // LOOPS
 
-//     Loops are defined as a construct within that executes a block of 
+//     Loops are defined as a construct within, that executes a block of 
 // code a number of times until a certain set of conditions are met. These are three
 // major types of loops each with their own benefits. 
 
@@ -27,14 +27,14 @@
 // What is the benefit of using a while loop vs. a for loop? One could more than
 // likely use both in any circumstance but usually a while loop is used when there 
 // is no specific set of times that one would need to perform an action. 
-// In contrast to a for loop that does have a specific amount of times that the 
-// programmer wishes to execute the loop. A very classic example is when looping 
+// In contrast to a for loop which does posesses a specific amount of times that the 
+// programmer wishes to execute the loop. An example of this can be viewed when looping 
 // through the values of an array. 
 
 //Looping forwards in an array - notice the index, the conditional statement 
 //                               and the incrementer. 
 
-    var saturdayLove = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var saturdayLove = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sat-tur-daaay"];
     for(let index = 0; index < saturdayLove.length; index++){
         console.log( "On, " , saturdayLove[index]); 
     }

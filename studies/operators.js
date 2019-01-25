@@ -86,5 +86,13 @@
            One can use an ternary operator in the place of an if-else statement. 
            One can also use an ternary operator as a return statement within a function that would require an if-else statement. 
     
-    
 */
+    	theAnswer = 21;  //I just reassigned a previous variable, for fun-zies. 
+
+        theAnswer === 42 ? "The Answer is ALWAYS 42. " : "Clearly, you did not read the HitchHiker's Guide to the Galaxy!" ; 
+  
+  /* the statement evaluates to a boolean outcome, and then whether the boolean is true or false, it executes the appropriate 
+  line  of code, in the case of this example, the return will be the statement on the right, since the conditional statement evaluates to false.
+  
+  */ 
+	

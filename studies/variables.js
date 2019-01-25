@@ -2,7 +2,7 @@
 
 VARIABLES
 
-0. Definition : Variables are names that one attaches onto data or is used as reference point for data. One can think of them as attachments, 
+  Definition : Variables are names that one attaches onto data or is used as reference point for data. One can think of them as attachments, 
 				binding themselves, to make themselves have more usability within the program. 
 				
 		The parts of a variable include:
@@ -38,22 +38,23 @@ VARIABLES
 	         such as a loop or if-else statements. They cannot be referenced 
 			 or accessed in any other place but within that section of code. 
 
-1. Hoisting : Hoisting specifically refers to at what point a variable will 
-              be read within a line of code. There are two phases within the
+  Hoisting : Hoisting refers to at what point a variable will 
+              be read by the interpreter within a line of code. There are two phases within the
 			  compiler of a program as it is run.
 			  
-			  The first phase, reads the declarations of the variables first,
+			  The first phase, the interpreter reads the declarations of the variables first,
 			  then the initialization of the variables. When a variable is "hoisted to the top
 			  of the scope" it specifically referring towards the declaration of
-			  variable, then the assignment of a value. 
+			  variable. 
 			  
 			  There is an order of priority of which is to be hoisted first.
 			  1.)function declaration
 			  2.)variable declarations
-			  3.)variable declarations that are within the local and block scope of a program.
+			  3.)function declarations followed by variable declarations 
+			     that are within the local and block scope of a program.
 
 			  
-2. Variable keyword Types :   /i lets i/ and /i const. i/
+ Variable keyword Types :   /i lets i/ and /i const. i/
 
 		let is the keyword to declare a variable that can be local or block-scoped within a program. 
 		    They can be initialized and/or reassigned to any value. They differ from the var keyword
@@ -79,9 +80,7 @@ VARIABLES
 			  'const' as a keyword should be used when you are certain that the value will not change. It is meant to 'lock-in'
 			  a value towards a binding to be used within the program. 
 			  
-	    personal note. : I've been reading a lot that one should use 'const' as a default keyword variable to provide security that
-	    the variable will not be overwriten, will make certain to do that practice moving forward. 
- 
+
 		example of const keyword variable ===>
 */		
 		const datNumber = 777;
@@ -103,3 +102,4 @@ VARIABLES
 		console.log("this value cannot be accesssed outside of the scope");  
 		}   // since this value cannot be accessed, it should trigger the second statement. 
 */		
+

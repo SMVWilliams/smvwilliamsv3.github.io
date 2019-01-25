@@ -110,13 +110,14 @@ These are the different datatypes that can be contained within a variable.
 			PROPERTIES
 
 			 arrayName.length - property that expresses the amount of 
-			                     indices within a array.
+			                    indices within a array.
 			 
-			 Array.isArray(arrayName) - property that returns a boolean value
-			                        determining whether a datatype is an array. 
 	
 			METHODS 
-			
+
+			Array.isArray(arrayName) - method that returns a boolean value
+			                        determining whether given datatype is an array. 
+
 			arrayName.pop() - method that removes the last element of an array
 			                  and returns that element. 
 			
@@ -136,15 +137,15 @@ These are the different datatypes that can be contained within a variable.
 			           array into a string separating each element with a comma.  
 			
 			arrayName.splice()- method that specifically can remove or 
-			           add elements within an array. (start index, num of 
-			      elements to be added/removed, element to be added/replaced)
+			               add elements within an array. (start index, num of 
+		           	      elements to be added/removed, element to be added/replaced)
 			
 			arrayName.slice() -  method returns a modified array that contains
 			                     elements of the original array, must specify 
-			                 start and end index. DOES NOT HAVE SIDE EFFECTS.
+			                  start and end index. DOES NOT HAVE SIDE EFFECTS.
 			
 			arrayName.sort() - method that changes the order of elements within
-			                an array by alphabetizing or base numerical order.
+			                  an array by alphabetizing or base numerical order.
 			
 			arrayName.indexOf() - method returns the index of a the first 
 			            occurrence of a particular element within an array, 
@@ -195,7 +196,9 @@ These are the different datatypes that can be contained within a variable.
 			
 	PROPERTIES
 			
-	objVariableName.constructor - used to create new key/values within objects.
+	objVariableName.constructor - used to create new key/values within objects, when creating a New instance of an
+		   object in construction mode. When one is writing a new key property and value within an object, it is reference
+		   to this constructor. 
 			
 	METHODS
  
@@ -204,9 +207,12 @@ These are the different datatypes that can be contained within a variable.
 	Object.keys - method returns all key properties within an object as an array.
 	
 	objVariableName.hasOwnProperty() - method returns a boolean value to 
-	                    determine if a object possesses a property within.
+	                    determine if an object possesses a property within.
 	                    
 	objVariableName.toString() - method returns a string representation of an object's key/values.
+	
+	
+	
 
 			
    9. Function : a block of code, designed to perform an action,
@@ -219,4 +225,59 @@ representing infinity and negative infinity.  <--- when is an appropriate time t
 
 */
 
+/*  Copy By Value vs. Copy By Reference :
+	
+	As stated previously, primitive values or datatypes (numbers, strings, booleans, null, undefined) are copied by value.
+	Complex datatypes (objects and arrays) are copied by reference.  This is referenced into the different ways that a variable binds 
+	data and how one accesses, assigns and reassigns values to a variable.
+	
+	i.) copying by value - depicted here are two variables that will demonstrate 'copy by value'
+*/						   
 
+	let x = 'five';  //the first variable 'x' is assigned a value of string value 'five'
+	
+	console.log('x = ' , x);  // Output is the string value 'five'
+	
+	const y = x;    // the second variable 'y' is assigned to the same value of 'x', 
+					// when assigned the variable y, looks to x for the value, and copies the value
+					// of x.
+					
+	console.log('y = ', y);   //Output is the string value 'five'
+	
+	x = 5;       //when reassigning the variable x to a new value, in this case, a number. 
+	
+	console.log('new value of x = ', x, 'value of y = ', y); 
+					
+			    // the value of y remains the same. 
+
+//  ii.)  copying by reference - complex datatypes are in fact collections of simple datatypes. 
+	
+	const dharma = [4, 8, 15, 16, 23, 42]; 
+		
+		/* similar to the first example, we have two variables, dharma and others however, dharma is a complex datatype, an array. 
+		   also similar to the first example, the second variable is initialized to adopt the second similar values to the first.  	
+		*/								
+	
+	const others = dharma; 
+
+	  /* But this is where the similarities end, dharma being a complex datatype is referencing mutliple values that are held in memory,
+	     as a list, that is referenced by index. so in order to access, a particular simple datatype within this list, one would
+	     use the variable and the specfic index using bracket notation. 
+	  */
+	  
+	console.log(dharma[5]); // the console will log the number 42. 
+	
+	/*
+		By assigning the variable others to dharma, it is in fact assigning the same references to that array. the variable
+		others 'inherits' the same access to that array in the same way that dharma can so if others were to reassign a value
+		at a particular index. 
+	*/
+	
+	others[5] = 21;  
+	
+	console.log("the dharma reference point will also change", dharma); 
+	
+	// the variable dharma will also reflect the reassignment of that value, since they are pointing to the same complex datatype.
+	// hence, 'copy by reference'. 
+	
+	

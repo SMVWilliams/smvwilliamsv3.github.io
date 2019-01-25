@@ -17,6 +17,9 @@
 //     - undefined
 //     - the boolean value false
 
+// In the case of determining whether a condition is true or false, a simpler way is that one could 
+// let the datatype BE the conditional as opposed to writing a complete statement. 
+
  for(let boundary = 10; boundary >= 0; boundary--){
 	if(boundary){
 	console.log( "If I know the boundary has a value of ", boundary, "and is  inherently true, I COULD write a condition, or I could wait till it becomes zero");
@@ -26,7 +29,7 @@
  }
  
 
-// Conditional statements used to control the flow of the program are comprised of
+// Conditional statements are used to control the flow of the program and are comprised of
 // several types. 
 
 // 1. If statements - If statements are always the initial condition to evaluated.
@@ -63,7 +66,7 @@
 
  
 	var type = typeof value; // <----- this is the expression statement 
-							 //        that will be evaluated with the switch statement
+							 //        that will be evaluated within the switch statement
     
   switch(type){
 
@@ -76,18 +79,19 @@
      case 'undefined' : 
             typeValue = typeof value; 
             break;            //<----- Each case is separated by a breakline. 
-							  //		This is to prevent from the compiler to go to the 
+							  //		This is to prevent the compiler to go to the 
 							  //		next case after it executes a statement.
 							  //		Also one can group cases together if
 							  //		they have similar statements, in this case
-							  //        the statement is to reassign the typeValue variable.
+							  //        the statement is to reassign the typeValue variable
+							  //        using the  resolved outcome of the typeof operator
+							  //        on the given value. 
 									
       
-
 	// At the end of the case/values there is also a default case that will
     // be executed if none of the case values match the expression.
       
-     //for the default case ('object') use I decided to use a multi-chained ternary 
+     //for the default case ('object') I decided to use a multi-chained ternary 
 	 //to determine if value is an array, null, date or an object
      //if any case is true. the variable typeValue will be reassigned accordingly.
     
